@@ -1,0 +1,47 @@
+<form (submit)="submit()">
+  <legend>Register a new user</legend>
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
+      [(ngModel)]="user.firstName">
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
+      [(ngModel)]="user.lastName">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="user.email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+      [(ngModel)]="user.password">
+  </div>
+  <div class="form-group">
+    <label for="birthDate">Birth date</label>
+    <input type="date" class="form-control" id="birthDate" placeholder="Birth date" name="birthDate"
+      [(ngModel)]="user.birthDate">
+  </div>
+  <div class="form-group">
+    <label for="province">Province</label>
+    <select class="form-control" id="province" name="province" [(ngModel)]="user.province">
+      <option value="0">Province...</option>
+      <option *ngFor="let province of provinces" [value]="province.id">{{ province.name }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="language">Language</label>
+    <select class="form-control" id="language" name="language" [(ngModel)]="user.language">
+      <option selected value="0">Language...</option>
+      <option *ngFor="let language of languages" [value]="language.id">{{ language.name }}</option>
+    </select>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input mb-3" id="file" (change)="loadImage(fileInput)" #fileInput>
+    <label class="custom-file-label" for="file">Choose file</label>
+  </div>
+  <img [src]="user.profileImage" *ngIf="user.profileImage" alt="" class="my-2 w-100">
+  <button type="submit" class="mt-3 btn btn-primary">Submit</button>
+</form>

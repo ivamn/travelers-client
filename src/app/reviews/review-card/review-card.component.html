@@ -1,0 +1,12 @@
+<div class="card">
+  <a [routerLink]="['/reviews', review.id]">
+    <img class="card-img-top" [src]="review.image | imgUrl" alt="">
+  </a>
+  <div class="card-body">
+    <h5 class="card-title">{{ review.title }}</h5>
+    <p class="card-text">
+      {{review.description}}
+    </p>
+    <a [routerLink]="['/reviews', review.id]" class="btn btn-primary">Details</a>
+  </div>
+</div>
